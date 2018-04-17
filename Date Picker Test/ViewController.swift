@@ -29,6 +29,25 @@ class ViewController: UIViewController{
         lblC.text = formatter.string(from: date)
         if lblP.text == lblC.text {
             view.backgroundColor = UIColor.red
+            let myAlert = UIAlertController(title: "알림", message: "설정된 시간이 되었습니다!!", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "확인", style: .default) {(myAction: UIAlertAction)-> Void in
+                self.view.backgroundColor = UIColor.blue
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (myAction: UIAlertAction) -> Void in
+                self.view.backgroundColor = UIColor.white
+            }
+            
+            let testAction = UIAlertAction(title: "지우기", style: .destructive) { (myAction: UIAlertAction) -> Void in
+                self.view.backgroundColor = UIColor.green
+            }
+            
+            myAlert.addAction(okAction)
+            myAlert.addAction(cancelAction)
+            myAlert.addAction(testAction)
+            
+            present(myAlert, animated: true, completion: nil)
         }
     }
     override func didReceiveMemoryWarning() {
